@@ -4,11 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
     <title>Intel 8080 instructions</title>
+    <style>
+        * {
+            margin: 6px;
+            padding: 0px;
+        }
+
+        #search {
+            width: 100%;
+        }
+
+    </style>
+    <script>
+        const opcodes = [
+            {%- for opcode in opcodes %}
+            [
+                "{{ opcode[0] }}", 
+                "{{ opcode[0] }} {{ opcode[1] }} 
+                {%- for arg in opcode[2] %} {{ arg }}{% endfor -%}
+                {%- for tag in opcode[3] %} {{ tag|upper }}{% endfor -%}
+                ",
+            ],
+            {%- endfor %}
+        ];
+        const search = (input) => {
+            const inputs = input.value.toUpperCase().split(' ');
+            if (!inputs.length) return;
+            for (let opcode of opcodes) {
+                let matches = 0;
+                for (let input of inputs) {
+                    if (opcode[1].includes(input)) matches += 1;
+                }
+                const direct_match = opcode[1].includes(input);
+                const matched = matches == inputs.length || direct_match;
+                const element = document.getElementById(opcode[0]);
+                element.style.display = matched ? "block" : "none";
+            }
+        }
+        window.onload = function() {
+            document.getElementById("search").focus();
+        }
+    </script>
 </head>
 
 <body>
     <h1>Intel 8080 instructions</h1>
-</body>
+
+    <input id="search" placeholder="intruction mnemonic or opcode" onkeyup="search(this)">
+
+    {% for opcode in opcodes -%}
+    <div id="{{ opcode[0] }}">
+        {{ opcode[0] }} {{ opcode[1] }}
+        {%- for arg in opcode[2] %}
+            {%- if loop.first %} {% else %}, {% endif -%}
+            {{- arg -}}
+        {% endfor -%}
+        {% if opcode[3] %}
+        <span>
+            {% for tag in opcode[3] %}+{{ tag }}{% endfor %}
+        </span>
+        {%- endif %}
+    </div>
+    {% endfor %}
 
 </html>
