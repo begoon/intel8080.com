@@ -2,6 +2,9 @@ all:
 
 build:
 	(cd source && npm run build)
+
+dev:
+	(cd source && npm run dev)
 	
 release:
 	-rm -rf docs/assets

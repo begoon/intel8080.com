@@ -53,7 +53,11 @@
                     <th class="pl-2">Argument 1</th>
                     <th class="pl-2">Argument 2</th>
                     <th class="pl-4">Cycles</th>
-                    <th class="pl-4">Mask</th>
+                    <th
+                        class="pl-4 cursor-help"
+                        title="Hovering on the mask shows register information."
+                        >Mask</th
+                    >
                     <th class="pl-4">Flags</th>
                     <th class="pl-2">Tags</th>
                 </tr>

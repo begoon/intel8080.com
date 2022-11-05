@@ -11,10 +11,13 @@
 
     mask = mask || masks[mnemonic];
 
+    /**
+     * @param {string} str
+     */
     function isNumeric(str) {
         return /^\d+$/.test(str);
     }
-    const binary = (opcode) => {
+    const binary = (/** @type {string} */ opcode) => {
         const bits = parseInt(opcode, 16).toString(2).padStart(8, "0");
         if (!mask) return bits;
         let colored = "";
@@ -34,25 +37,26 @@
         }
         return colored;
     };
-    const decriptions = {
+    const registers = {
         xxx: "000(0) to 111(7)",
+        ddd: "000 (b), 001 (c), 010 (d), 011 (e), 100 (h), 101 (l), 110 (m), 111 (a)",
+        sss: "000 (b), 001 (c), 010 (d), 011 (e), 100 (h), 101 (l), 110 (m), 111 (a)",
         rrr: "000 (b), 001 (c), 010 (d), 011 (e), 100 (h), 101 (l), 110 (m), 111 (a)",
         rr: "00 (bc), 01 (de), 10 (hl), 11 (sp)",
         r: "0 (bc), 1 (de)",
-        ddd: "000 (b), 001 (c), 010 (d), 011 (e), 100 (h), 101 (l), 110 (m), 111 (a)",
-        sss: "000 (b), 001 (c), 010 (d), 011 (e), 100 (h), 101 (l), 110 (m), 111 (a)",
     };
-    const parse_mask = (mask) => {
+    const parse_mask = (/** @type {string} */ mask) => {
         let max = 0;
-        for (let key in decriptions) {
-            if (key.length >= max && mask.includes(key)) {
-                const hint = decriptions[key];
-                const tag = `<span class="cursor-help" title="${key}: ${hint}">${key}</span>`;
-                mask = mask.replace(key, tag);
-                max = key.length;
+        const tag = (/** @type {string} */ key, /** @type {string} */ hint) =>
+            `<span class="cursor-help" title="${hint}">${key}</span>`;
+        for (let register in registers) {
+            if (register.length >= max && mask.includes(register)) {
+                const hint = registers[register];
+                mask = mask.replace(register, tag(register, hint));
+                max = register.length;
             }
         }
-        return "<b>" + mask + "</b>";
+        return mask;
     };
 </script>
 
@@ -72,7 +76,9 @@
     <td class="pl-4">{cycles}</td>
     <td class="pl-4">
         {#if mask}
-            <span class="text-xs font-mono">{@html parse_mask(mask)}</span>
+            <span class="text-xs font-mono font-bold">
+                {@html parse_mask(mask)}
+            </span>
         {/if}
     </td>
     <td class="pl-4">{flags[mnemonic] ?? ""}</td>
@@ -84,10 +90,8 @@
             <div>
                 <p>Pseudocode:</p>
                 <pre class="text-sm">
-                {#each extra[mnemonic] as line}
-                        <p>{line}</p>
-                    {/each}
-            </pre>
+                    {#each extra[mnemonic] as line}<p>{line}</p>{/each}
+                </pre>
             </div>
         {/if}
     </td>
