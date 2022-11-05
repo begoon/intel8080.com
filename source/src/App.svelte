@@ -33,6 +33,7 @@
 </script>
 
 <div class="absolute top-4 left-4 right-4 text-left">
+    <p class="text-lg font-bold">Intel 8080 / КР580 instructions</p>
     <div>
         Enter keywords to filter (use '-' to negate), for example, "mov c" or
         "inx -23".
