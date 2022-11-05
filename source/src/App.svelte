@@ -74,6 +74,13 @@
             {/each}
         </table>
     {/key}
+    <p class="pt-2">
+        Copyright &copy; 2022 by <a href="https://github.com/begoon"
+            >Alexander Demin</a
+        >
+        |
+        <a href="https://rk86.ru" rel="noreferrer" target="_blank">rk86.ru</a>
+    </p>
 </div>
 
 <style>
