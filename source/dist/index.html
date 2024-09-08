@@ -1,58 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-QTZSDNYB00"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-QTZSDNYB00");
+        </script>
 
-<head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QTZSDNYB00"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-QTZSDNYB00');
-  </script>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/icon" href="/assets/favicon.33300f8b.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+        <title>Intel 8080</title>
+      <script type="module" crossorigin src="/assets/index.1f4edc80.js"></script>
+      <link rel="stylesheet" href="/assets/index.bd3579a2.css">
+    </head>
 
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/icon" href="/assets/favicon.33300f8b.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Intel 8080</title>
-  <script type="module" crossorigin src="/assets/index.d94658a8.js"></script>
-  <link rel="stylesheet" href="/assets/index.bd3579a2.css">
-</head>
+    <body>
+        <!-- -->
+        <div class="github-corner">
+            <a
+                href="https://github.com/begoon/intel8080.com"
+                title="Fork me on GitHub"
+                ><svg viewbox="0 0 100 100" fill="currentColor">
+                    <title>Fork me on GitHub</title>
+                    <path
+                        d="M0 0v100h100V0H0zm60 70.2h.2c1 2.7.3 4.7 0 5.2 1.4 1.4 2 3 2 5.2 0 7.4-4.4 9-8.7 9.5.7.7 1.3 2 1.3 3.7V99c0 .5 1.4 1 1.4 1H44s1.2-.5 1.2-1v-3.8c-3.5 1.4-5.2-.8-5.2-.8-1.5-2-3-2-3-2-2-.5-.2-1-.2-1 2-.7 3.5.8 3.5.8 2 1.7 4 1 5 .3.2-1.2.7-2 1.2-2.4-4.3-.4-8.8-2-8.8-9.4 0-2 .7-4 2-5.2-.2-.5-1-2.5.2-5 0 0 1.5-.6 5.2 1.8 1.5-.4 3.2-.6 4.8-.6 1.6 0 3.3.2 4.8.7 2.8-2 4.4-2 5-2z"
+                    ></path></svg
+            ></a>
+        </div>
+        <style>
+            .github-corner {
+                position: fixed;
+                rotate: 90deg;
+                right: 0;
+                bottom: 0;
+                width: 80px;
+                height: 80px;
+                overflow: hidden;
+            }
 
-<body>
-  <!-- -->
-  <div class="github-corner"><a href="https://github.com/begoon/intel8080.com" title="Fork me on GitHub"><svg
-        viewbox="0 0 100 100" fill="currentColor">
-        <title>Fork me on GitHub</title>
-        <path
-          d="M0 0v100h100V0H0zm60 70.2h.2c1 2.7.3 4.7 0 5.2 1.4 1.4 2 3 2 5.2 0 7.4-4.4 9-8.7 9.5.7.7 1.3 2 1.3 3.7V99c0 .5 1.4 1 1.4 1H44s1.2-.5 1.2-1v-3.8c-3.5 1.4-5.2-.8-5.2-.8-1.5-2-3-2-3-2-2-.5-.2-1-.2-1 2-.7 3.5.8 3.5.8 2 1.7 4 1 5 .3.2-1.2.7-2 1.2-2.4-4.3-.4-8.8-2-8.8-9.4 0-2 .7-4 2-5.2-.2-.5-1-2.5.2-5 0 0 1.5-.6 5.2 1.8 1.5-.4 3.2-.6 4.8-.6 1.6 0 3.3.2 4.8.7 2.8-2 4.4-2 5-2z">
-        </path>
-      </svg></a></div>
-  <style>
-    .github-corner {
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 80px;
-      height: 80px;
-      overflow: hidden;
-    }
+            .github-corner a {
+                position: absolute;
+                right: 0;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                transform: translate(50%, -50%) rotate(45deg);
+                color: #636363;
+            }
+        </style>
+        <!-- -->
 
-    .github-corner a {
-      position: absolute;
-      right: 0;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      transform: translate(50%, -50%) rotate(45deg);
-      color: #636363;
-    }
-  </style>
-  <!-- -->
-
-  <div id="app"></div>
-  
-</body>
-
+        <div id="app"></div>
+        
+    </body>
 </html>

@@ -84,5 +84,10 @@
     </p>
 </div>
 
-<style>
-</style>
+<div class="absolute top-2 right-2">
+    <stripe-buy-button
+        buy-button-id="buy_btn_1PwlCuE1ZtoZHZKRVS02uqE1"
+        publishable-key="pk_live_51OfkxaE1ZtoZHZKRbqpPUqmJShMksnaTRbLhq7OO56zomqSUINeWJak6DeFpOgtcVSh3aPl0Oeei16UoMgozRGrk004N9fSmzS"
+    >
+    </stripe-buy-button>
+</div>
