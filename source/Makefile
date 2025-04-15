@@ -1,11 +1,10 @@
 all:
 
 local:
-	python -m http.server -d dist
+	python3 -m http.server -d dist
 
 build:
-	npm run build
+	bun vite build
 
 dev:
-	npm run dev
-
+	bun dev
