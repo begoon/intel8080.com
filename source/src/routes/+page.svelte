@@ -1,8 +1,14 @@
 <script>
-    import { extra, flags, instructions, masks } from "./assets/opcodes.js";
-    import Instruction from "./lib/Instruction.svelte";
+    import { extra, flags, instructions, masks } from "$lib/assets/opcodes.js";
+    import Instruction from "$lib/Instruction.svelte";
+
+    import { onMount } from "svelte";
+    import { version } from "$app/environment";
 
     let filter = "";
+    let inputEl;
+
+    onMount(() => inputEl.focus());
 
     const normalize = (value, { sep }) =>
         value
@@ -35,7 +41,7 @@
 <div class="absolute top-4 left-4 right-4 text-left">
     <p class="text-lg font-bold">Intel 8080 / КР580 instructions</p>
     <div>Enter keywords to filter (use '-' to negate), for example, "mov c" or "inx -23".</div>
-    <input bind:value={filter} placeholder="filter..." class="border-2 border-slate-200 mb-4 w-full" />
+    <input bind:this={inputEl} bind:value={filter} placeholder="filter..." class="border-2 border-slate-200 mb-4 w-full" />
     {#key filter}
         <table class="table-auto border-collapse">
             <thead>
@@ -61,6 +67,8 @@
     {/key}
     <p class="pt-2">
         Copyright &copy; 2025 by <a href="https://github.com/begoon">Alexander Demin</a>
+        |
+        {version}
         |
         <a href="https://rk86.ru" rel="noreferrer" target="_blank">rk86.ru</a>
     </p>

@@ -4,15 +4,14 @@ install:
 	(cd source && bun install)
 
 build:
-	(cd source && bun vite build)
+	(cd source && bun run build)
 
 dev:
 	(cd source && bun dev)
-	
+
 release:
-	-rm -rf docs/assets
-	-rm docs/index.html
-	cp -r source/dist/* docs/
+	-rm -f docs/index.html
+	cp source/build/index.html docs/
 
 serve:
-	(cd source/dist && python3 -m http.server 8000)
+	(cd source/build && python3 -m http.server 8000)
